@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require('express');
 var router = express.Router();
 var ctrllocation = require('../controller/location');
@@ -6,8 +7,6 @@ var ctrlothers = require('../controller/others');
 /* GET Locations page */
 router.get('/', ctrllocation.homeList);
 router.get('/location', ctrllocation.locationInfo);
-router.get('/location2', ctrllocation.locationInfo2);
-router.get('/location3', ctrllocation.locationInfo3);
 router.get('/location/review/new', ctrllocation.addReview);
 
 /*GET others page */
