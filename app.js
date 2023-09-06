@@ -3,11 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-require('./app-server/model/db');
+require('./app_api/model/db');
 
 var indexRouter = require('./app-server/routes/index');
 var usersRouter = require('./app-server/routes/users');
-
+var routesApi = require('./app_api/routes/index');
+app.use('/api', routesApi);
 var app = express();
 
 // view engine setup

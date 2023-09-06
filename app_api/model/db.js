@@ -1,6 +1,11 @@
 
 const mongoose = require('mongoose');
+
+var gracefulShutdown;
 const dbURI = 'mongodb://0.0.0.0:27017/loc8r';
+if (process.env.NODE_ENV === 'production') {
+    dbURI = process.env.MONGODB_URI;
+}
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', () => {
